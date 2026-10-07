@@ -1,5 +1,5 @@
 {
-  "name": "bloom-flower-crown",
+  "name": "bloom",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -28,6 +28,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hunainahmedj/bloom-flower-crown.git"
+    "url": "https://github.com/hunainahmedj/bloom.git"
   }
 }

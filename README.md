@@ -7,8 +7,8 @@ Summon a 3D flower crown with your hand, move and resize it between your fingert
 Install **Node.js 22.12 or newer** and npm. Node 20.19+ in the 20.x line also works. If you use nvm, run `nvm install` and `nvm use` in this folder.
 
 ```sh
-git clone https://github.com/hunainahmedj/bloom-flower-crown.git
-cd bloom-flower-crown
+git clone https://github.com/hunainahmedj/bloom.git
+cd bloom
 npm ci
 npm start
 ```
