@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f3ec" />
+    <meta name="description" content="Summon a three-dimensional flower crown with your hand and try it on, right in your browser." />
+    <link rel="icon" type="image/svg+xml" href="/flower.svg" />
+    <title>Bloom — your flower crown</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="/" aria-label="Bloom home"><img src="/flower.svg" alt="" width="32" height="32" />Bloom</a>
+      <span class="header-note">A small moment of play.</span>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <div class="intro-heading"><span class="eyebrow">A crown, made of flowers</span><h1 id="title">A little bloom.<br />All your own.</h1>
+        <p class="lede">Open your hand. Watch it bloom.<br />Make it yours.</p></div>
+        <div class="actions"><button id="start" class="primary"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="12" rx="3"/><path d="m17 10 4-3v10l-4-3"/></svg><span>Start camera</span></button>
+        <button id="stop" class="secondary" hidden>Stop camera</button></div>
+        <p class="privacy"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2 3.5 5v4.5c0 4 3 6.5 6.5 8 3.5-1.5 6.5-4 6.5-8V5L10 2Z"/><path d="m7 9 2 2 4-4"/></svg>Your camera stays on your device.</p>
+        <ol class="instructions">
+          <li><span class="step">1</span><div><strong>Open your hand</strong><p>Your crown appears<br /> between your fingertips.</p></div></li>
+          <li><span class="step">2</span><div><strong>Make it yours</strong><p>Move your fingers to guide it.<br /> Spread to grow. Curl to shrink.</p></div></li>
+          <li><span class="step">3</span><div><strong>Put it on</strong><p>Bring it above your head to fit.<br /> Grab again to take it off.</p></div></li>
+        </ol>
+        <div class="botanical-note"><span class="tiny-flower" aria-hidden="true">✳</span><p>Sunlit daisies, full rosettes,<br />and tall meadow bells.</p></div>
+      </section>
+      <section class="experience" aria-label="Interactive flower crown">
+        <div id="stage" class="stage settings-hidden" data-mood="natural">
+          <video id="camera" autoplay muted playsinline aria-label="Your mirrored camera view" hidden></video>
+          <div class="stage-top"><span id="mode" class="mode"><span></span>3D preview</span><div class="stage-controls">
+            <button id="scene-camera" class="icon-button" aria-label="Start camera in scene" title="Start camera" data-hand-target="camera"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="12" rx="3"/><path d="m17 10 4-3v10l-4-3"/></svg></button>
+            <button id="effects" class="effects-button" aria-label="Effects on" aria-pressed="true" data-hand-target="effects"><span aria-hidden="true">✧</span><span class="effects-label">Effects on</span></button>
+            <button id="settings-toggle" class="icon-button look-toggle" aria-label="Change look, Garden" aria-expanded="false" aria-controls="scene-settings" title="Change flowers and camera filters" data-hand-target="settings"><span class="look-toggle-copy"><strong>Change look</strong><span id="selected-look">Garden</span></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 10 4 4 4-4"/></svg></button>
+            <button id="fullscreen" class="icon-button" aria-label="Enter fullscreen" aria-pressed="false" title="Enter fullscreen" data-hand-target="fullscreen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
+            <button id="reset" class="icon-button" title="Reset crown" aria-label="Reset crown" data-hand-target="reset"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9a8 8 0 1 1-.2 5M4 4v5h5"/></svg></button>
+          </div></div>
+          <p id="stage-status" class="stage-status" role="status" aria-live="polite" hidden></p>
+          <div class="scene-tint" aria-hidden="true"></div>
+          <div class="preview-shadow" aria-hidden="true"></div>
+          <div id="placement" class="placement" hidden aria-hidden="true"></div>
+          <canvas id="scene" tabindex="0" aria-label="3D flower crown. Drag to rotate in preview. With the camera on, drag to move the crown." role="img"></canvas>
+          <div id="fingertips" class="fingertip-nodes" hidden aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <div id="cursor" class="hand-cursor" hidden aria-hidden="true"></div>
+          <div id="settings-pointer" class="settings-pointer" hidden aria-hidden="true"></div>
+          <section id="scene-settings" class="scene-settings" aria-label="Crown settings" hidden>
+            <div class="settings-heading"><strong>Your look</strong><button id="bloom" class="bloom-button" data-hand-target="bloom"><span aria-hidden="true">✳</span> Bloom again</button></div>
+            <div class="crown-styles" role="group" aria-label="Crown style">
+              <button class="style-choice" data-style="garden" data-hand-target="style-garden" aria-label="Garden" aria-pressed="true"><i class="look-icon garden-icon" aria-hidden="true">✿</i><span>Garden<small>Golden daisies</small></span></button>
+              <button class="style-choice" data-style="rose" data-hand-target="style-rose" aria-label="Rose" aria-pressed="false"><i class="look-icon rose-icon" aria-hidden="true">❀</i><span>Rose<small>Full rosettes</small></span></button>
+              <button class="style-choice" data-style="wildflower" data-hand-target="style-wildflower" aria-label="Wildflower" aria-pressed="false"><i class="look-icon wild-icon" aria-hidden="true">♧</i><span>Wildflower<small>Meadow bells</small></span></button>
+            </div>
+            <div class="mood-choices" role="group" aria-label="Scene mood">
+              <button data-mood="natural" data-hand-target="mood-natural" aria-label="Natural" aria-pressed="true"><span aria-hidden="true">○</span> Natural</button>
+              <button data-mood="party" data-hand-target="mood-party" aria-label="Party" aria-pressed="false"><span aria-hidden="true">✦</span> Party</button>
+              <button data-mood="gloomy" data-hand-target="mood-gloomy" aria-label="Gloomy" aria-pressed="false"><span aria-hidden="true">☾</span> Gloomy</button>
+              <button data-mood="cutesy" data-hand-target="mood-cutesy" aria-label="Cutesy" aria-pressed="false"><span aria-hidden="true">♡</span> Cutesy</button>
+            </div>
+            <div id="camera-tools" class="camera-tools" hidden><button id="wear" data-hand-target="wear" class="secondary" disabled>Put crown on</button><button id="set-down" data-hand-target="set-down" class="secondary" disabled>Set crown down</button></div>
+            <p id="hand-settings-hint">While wearing, point &amp; hold to choose.</p>
+          </section>
+          <div class="stage-bottom"><p id="hint">Drag to explore. Change look for flowers &amp; filters.</p><div id="tracking-badges" hidden><span id="face-badge">Face</span><span id="hand-badge">Hand</span></div></div>
+        </div>
+        <div class="scene-caption"><div><strong>Your flower crown</strong><span id="style-description">Golden daisies, ivory petals &amp; fern-like greenery.</span></div><span id="size-readout" class="size-readout" hidden>Crown size 100%</span><span class="caption-detail">Curved petals. A little magic.</span></div>
+        <p id="status" class="status" role="status" aria-live="polite">Start your camera to try it on, or drag the crown to look around.</p>
+
+        <noscript>Enable JavaScript to render the crown and use your camera.</noscript>
+      </section>
+    </main>
+    <footer><span>Flowers without the picking.</span><span>Made for your browser.</span></footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

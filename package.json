@@ -1,0 +1,33 @@
+{
+  "name": "bloom-flower-crown",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "prepare:assets": "node scripts/prepare-assets.mjs",
+    "start": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "postinstall": "node scripts/prepare-assets.mjs",
+    "preview": "vite preview --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "1.1.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/three": "0.183.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.3",
+    "vitest": "4.1.11"
+  },
+  "description": "Interactive 3D flower crowns with webcam hand and head tracking.",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunainahmedj/bloom-flower-crown.git"
+  }
+}

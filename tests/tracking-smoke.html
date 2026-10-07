@@ -1,0 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Bloom tracking validation</title></head><body>
+<h1>Tracking validation with a synthetic video</h1><p>This checks model loading and inference, not real camera tracking.</p><button id="run">Run tracking check</button><pre id="result" role="status">Not started</pre><video id="video" muted playsinline style="width:160px"></video>
+<p><label>Production worker URL <input id="production-path" size="65" placeholder="/dist/assets/tracking.worker-HASH.js"></label></p><button id="production">Check production worker</button><pre id="production-result">Not started</pre>
+<script type="module" src="./tracking-smoke.ts"></script></body></html>
